@@ -91,7 +91,7 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Acknowledgments
 
-While I did not follow the article to a T, I consulted the below article from Digital Ocean while creating this app.  
+While I did not follow it to a T, I consulted the below article from Digital Ocean while creating this app.  
 [How To Add Authentication to Your App with Flask-Login](https://www.digitalocean.com/community/tutorials/how-to-add-authentication-to-your-app-with-flask-login)
 
 ---
