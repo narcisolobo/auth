@@ -1,0 +1,75 @@
+{% extends "/shared/layout.html" %}
+
+{% block title %} - Register{% endblock title %}
+
+{% block content %}
+
+<section>
+  <div class="row">
+    <div class="col-lg-4 col-md-8 col-sm-12">
+      <h1 class="display-1 my-5">Register</h1>
+      <div class="card shadow">
+        <div class="card-body">
+          <form action="{{ url_for('auth.register') }}" method="post">
+            {{ form.csrf_token }}
+            <div class="mb-3">
+              {{ form.username.label(class="form-label") }}
+              {{ form.username(class="form-control") }}
+              {% if form.username.errors %}
+                <span class="form-text text-warning">
+                  {% for error in form.username.errors %}
+                    {{ error }}
+                  {% endfor %}
+                </span>
+              {% endif %}
+            </div>
+            <div class="mb-3">
+              {{ form.email.label(class="form-label") }}
+              {{ form.email(class="form-control") }}
+              {% if form.email.errors %}
+                <span class="form-text text-warning">
+                  {% for error in form.email.errors %}
+                    {{ error }}
+                  {% endfor %}
+                </span>
+              {% endif %}
+            </div>
+            <div class="mb-3">
+              {{ form.password.label(class="form-label") }}
+              {{ form.password(class="form-control") }}
+              {% if form.password.errors %}
+                <span class="form-text text-warning">
+                  {% for error in form.password.errors %}
+                    {{ error }}
+                  {% endfor %}
+                </span>
+              {% endif %}
+            </div>
+            <div class="mb-3">
+              {{ form.confirm_password.label(class="form-label") }}
+              {{ form.confirm_password(class="form-control") }}
+              {% if form.confirm_password.errors %}
+                <span class="form-text text-warning">
+                  {% for error in form.confirm_password.errors %}
+                    {{ error }}
+                  {% endfor %}
+                </span>
+              {% endif %}
+            </div>
+            <div class="text-end">
+              <input type="submit" value="Register" class="btn btn-primary" />
+            </div>
+          </form>
+        </div>
+        <div class="card-footer text-center">
+          <small>
+            Have an account?
+            <a href="{{ url_for('auth.login') }}">Login here.</a>
+          </small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock content %}
