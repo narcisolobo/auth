@@ -37,7 +37,7 @@ def register():
         flash("Registration successful. Please log in.")
         return redirect(url_for("auth.login"))
 
-    return render_template("register.html", form=form)
+    return render_template("/auth/register.html", form=form)
 
 
 @auth.route("/login", methods=["GET", "POST"])
@@ -64,7 +64,7 @@ def login():
         login_user(user, remember=remember)
         return redirect(url_for("main.dashboard"))
 
-    return render_template("login.html", form=form)
+    return render_template("/auth/login.html", form=form)
 
 
 @auth.get("/logout")
