@@ -62,18 +62,9 @@ def login():
 
         # Log in the user
         login_user(user, remember=remember)
-        return redirect(url_for("auth.dashboard"))
+        return redirect(url_for("main.dashboard"))
 
     return render_template("login.html", form=form)
-
-
-@auth.get("/dashboard")
-@login_required
-def dashboard():
-    """Displays the dashboard template."""
-
-    username = current_user.username
-    return render_template("dashboard.html", username=username)
 
 
 @auth.get("/logout")
