@@ -23,7 +23,7 @@ I made this project to learn how to implement a few auth-related Flask plugins. 
 
 Flask was the first web framework that I learned back in 2018. I did not attempt to implement any popular Flask plugins at the time, mostly because I didn't know they existed. After learning basic Flask concepts, I quickly moved to Django.
 
-Django is amazing, but it does a lot of things for you. In order to gain a better understanding of auth flow, I decided to go back to Flask and implement a DYI auth flow using only Flask, raw SQL, and Flask-Bcrypt. After getting a good handle on all of that, I wanted an ORM, an easier way to track user authentication, and hassle-free form validation.
+Django is amazing, but it does a lot of things for you. In order to gain a better understanding of auth flow, I decided to go back to Flask and implement a DIY auth flow using only Flask, raw SQL, and Flask-Bcrypt. After getting a good handle on all of that, I wanted an ORM, an easier way to track user authentication, and hassle-free form validation.
 
 That brings me to Flask Auth. With this project, I have hit all the goals I set out before me. I'm confident in what I have implemented, and I'm glad to have learned how to crawl before running.
 
