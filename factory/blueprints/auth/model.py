@@ -1,5 +1,4 @@
 from flask_login import UserMixin
-
 from sqlalchemy import DATETIME, Column, Integer, String
 from sqlalchemy.sql import func
 
