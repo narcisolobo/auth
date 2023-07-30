@@ -45,7 +45,6 @@ List the key features of your project. For example:
 git clone https://github.com/narcisolobo/auth.git
 cd auth
 pipenv install
-# Add more installation steps here, if needed
 ```
 
 ## Usage
