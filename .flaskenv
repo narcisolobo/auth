@@ -1,0 +1,1 @@
+FLASK_APP=factory/__init__.py

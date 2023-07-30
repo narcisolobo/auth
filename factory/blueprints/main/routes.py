@@ -17,4 +17,4 @@ def dashboard():
     """Displays the dashboard template."""
 
     username = current_user.username
-    return render_template("dashboard.html", username=username)
+    return render_template("/main/dashboard.html", username=username)
