@@ -1,5 +1,5 @@
 from flask import flash, redirect, render_template, request, url_for
-from flask_login import current_user, login_required, login_user, logout_user
+from flask_login import login_required, login_user, logout_user
 
 from factory.blueprints.auth import auth
 from factory.extensions import bcrypt, db
@@ -37,7 +37,7 @@ def register():
         flash("Registration successful. Please log in.")
         return redirect(url_for("auth.login"))
 
-    return render_template("register.html", form=form)
+    return render_template("/auth/register.html", form=form)
 
 
 @auth.route("/login", methods=["GET", "POST"])
@@ -62,18 +62,9 @@ def login():
 
         # Log in the user
         login_user(user, remember=remember)
-        return redirect(url_for("auth.dashboard"))
+        return redirect(url_for("main.dashboard"))
 
-    return render_template("login.html", form=form)
-
-
-@auth.get("/dashboard")
-@login_required
-def dashboard():
-    """Displays the dashboard template."""
-
-    username = current_user.username
-    return render_template("dashboard.html", username=username)
+    return render_template("/auth/login.html", form=form)
 
 
 @auth.get("/logout")
