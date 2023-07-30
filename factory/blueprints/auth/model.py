@@ -12,7 +12,7 @@ class User(UserMixin, db.Model):
     id = Column(Integer, primary_key=True, autoincrement="auto")
     username = Column(String(60), unique=True, nullable=False)
     email = Column(String(60), nullable=False)
-    avatar = Column(String(60), nullable=True, default=None)
+    avatar = Column(String(60), nullable=False, server_default="default-bear.svg")
     location = Column(String(60), nullable=True, default=None)
     blurb = Column(String(280), nullable=True, default=None)
     password = Column(String(60), nullable=False)

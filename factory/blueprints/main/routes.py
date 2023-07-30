@@ -16,5 +16,5 @@ def redirect_to_login():
 def dashboard():
     """Displays the dashboard template."""
 
-    username = current_user.username
-    return render_template("/main/dashboard.html", username=username)
+    user = current_user
+    return render_template("/main/dashboard.html", user=user)
