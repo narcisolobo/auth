@@ -3,18 +3,21 @@ This module contains the Flask app factory.
 """
 
 from os import environ
+from os.path import dirname, join, realpath
 
 from dotenv import load_dotenv
 from flask import Flask
 
 from .blueprints.auth import auth
 from .blueprints.main import main
-from .blueprints.auth.model import User
 from .extensions import bcrypt, db, login_manager, migrate
 
-# Environment variables
+# Environment variables and constants
 load_dotenv()
 SECRET_KEY = environ.get("SECRET_KEY")
+BASE_DIR = join(dirname(realpath(__file__)))
+UPLOAD_PATH = ["static", "images", "avatars"]
+UPLOAD_FOLDER = join(BASE_DIR, *UPLOAD_PATH)
 
 
 def create_app():
@@ -25,6 +28,7 @@ def create_app():
     # Configurations
     app.secret_key = SECRET_KEY
     app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db.sqlite"
+    app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
     # Extensions
     db.init_app(app)

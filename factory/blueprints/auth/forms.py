@@ -1,13 +1,16 @@
 from re import compile
 
 from flask_wtf import FlaskForm
-from wtforms import BooleanField, EmailField, PasswordField, StringField
+from flask_wtf.file import FileField, FileRequired
+from werkzeug.utils import secure_filename
+from wtforms import BooleanField, EmailField, PasswordField, StringField, TextAreaField
 from wtforms.validators import (
     DataRequired,
     Email,
     EqualTo,
     InputRequired,
     Length,
+    Optional,
     Regexp,
 )
 
@@ -68,3 +71,24 @@ class LoginForm(FlaskForm):
         ],
     )
     remember = BooleanField("Remember me")
+
+
+class AccountForm(FlaskForm):
+    location = StringField(
+        "Edit Location:",
+        validators=[
+            Optional(),
+            Length(1, 60, "Location must be between 1 and 60 characters long."),
+        ],
+    )
+    blurb = TextAreaField(
+        "Edit Blurb:",
+        validators=[
+            Optional(),
+            Length(1, 280, "Blurb must be between 1 and 280 characters long."),
+        ],
+    )
+
+
+class AvatarForm(FlaskForm):
+    avatar = FileField(validators=[FileRequired("Please choose an image.")])

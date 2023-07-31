@@ -1,0 +1,46 @@
+{% extends "/shared/layout.html" %}
+
+{% block title %} - Edit Avatar{% endblock title %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+  <div class="col-lg-6 col-md-12 col-sm-12 text-center">
+    <img
+      class="img-fluid mb-3"
+      alt="{{ user.username }}"
+      src="{{ url_for('static', filename='/images/avatars/' + user.avatar) }}"
+    />
+  </div>
+</div>
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-12 col-sm-12">
+      <div class="card shadow">
+        <h4 class="card-header">Upload New Avatar</h4>
+        <div class="card-body">
+          <form
+            method="post"
+            action="{{ url_for('auth.avatar') }}"
+            enctype="multipart/form-data">
+            {{ form.csrf_token }}
+            <div class="mb-3">
+              {{ form.avatar.label(class="form-label") }}
+              {{ form.avatar(class="form-control") }}
+              {% if form.avatar.errors %}
+                <span class="form-text text-warning">
+                  {% for error in form.avatar.errors %}
+                    {{ error }}
+                  {% endfor %}
+                </span>
+              {% endif %}
+            </div>
+            <div class="text-end">
+              <input type="submit" value="Upload File" class="btn btn-primary" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}
