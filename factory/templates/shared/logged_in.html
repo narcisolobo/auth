@@ -9,7 +9,7 @@
         <img
           class="menu-avatar rounded-circle"
           alt="{{ user.username }}"
-          src="{{ url_for('static', filename='/images/' + user.avatar) }}"
+          src="{{ url_for('static', filename='/images/avatars/' + user.avatar) }}"
         />
       </button>
       <ul class="dropdown-menu dropdown-menu-end">
@@ -19,8 +19,8 @@
         <li>
           <a
             class="dropdown-item"
-            href="{{ url_for('auth.logout') }}">
-            Your Profile
+            href="{{ url_for('auth.account') }}">
+            Your Account
           </a>
         </li>
         <li>

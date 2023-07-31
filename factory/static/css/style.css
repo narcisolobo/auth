@@ -1,3 +1,31 @@
 .menu-avatar {
   width: 2.5rem;
 }
+
+.avatar-container {
+  width: 5rem;
+  height: 5rem;
+  cursor: pointer;
+}
+
+.profile-avatar {
+  width: 5rem;
+  transition: filter 150ms ease-in-out;
+}
+
+.avatar-container:hover .profile-avatar {
+  filter: brightness(30%);
+}
+
+.edit-avatar {
+  visibility: hidden;
+  transition: filter 150ms ease-in-out;
+}
+
+.avatar-container:hover .edit-avatar {
+  visibility: visible;
+}
+
+.profile-card-body {
+  padding-top: 3rem;
+}

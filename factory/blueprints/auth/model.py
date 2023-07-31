@@ -17,4 +17,4 @@ class User(UserMixin, db.Model):
     blurb = Column(String(280), nullable=True, default=None)
     password = Column(String(60), nullable=False)
     created_at = Column(DATETIME, server_default=func.now())
-    updated_at = Column(DATETIME, server_onupdate=func.now())
+    updated_at = Column(DATETIME, onupdate=func.now())

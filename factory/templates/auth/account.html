@@ -1,0 +1,44 @@
+{% extends "/shared/layout.html" %}
+
+{% block title %} - Account{% endblock title %}
+
+{% block content %}
+
+<div class="row">
+  <div class="col-lg-6 col-md-8 col-sm-12">
+    <div class="card shadow">
+      <div class="card-header bg-primary py-5 px-3">
+        <div class="position-absolute avatar-container">
+          <img
+            class="profile-avatar position-absolute rounded-circle"
+            alt="{{ user.username }}"
+            src="{{ url_for('static', filename='/images/avatars/' + user.avatar) }}"
+          />
+          <a
+            href="{{ url_for('auth.avatar') }}"
+            class="mb-0 position-absolute top-50 start-50 translate-middle edit-avatar">
+            EDIT
+          </a>
+        </div>
+      </div>
+      <div class="profile-card-body card-body">
+        <h3 class="card-title">{{ user.username }}</h3>
+        <h5 class="card-subtitle text-muted mb-3">
+          {{ user.location if user.location else 'No location set.' }}
+        </h5>
+        <p class="card-text">
+          {{ user.blurb if user.blurb else 'No blurb set.' }}
+        </p>
+      </div>
+      <div class="card-footer text-end">
+        <a
+          class="btn btn-primary"
+          href="{{ url_for('auth.edit_account') }}">
+          Edit Account
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
